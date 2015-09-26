@@ -1,0 +1,39 @@
+<html>
+   <head>
+     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+     <script src="http://channel.sinaapp.com/api.js"></script>
+	</head>    
+	<body>	
+	<script> 		
+    function sendMessage() {
+    	 socket = new sae.Channel('<?php echo $connection; ?>');
+       socket.onopen = function(){
+       console.log("open");
+         } ;
+   
+    socket.onmessage = function(message){
+       console.log("welcome: "+message.data);
+       //document.write("hello: Mr "+message.data);
+		 alert("welcome: "+message.data);       
+       }; 
+   
+    socket.onerror = function(){
+       console.log("WebSocketError!");
+       };
+ 
+    socket.onclose =  function(){
+       console.log("WebSocketClosed!");
+       };
+    }   
+  </script>
+	<table width="100%" align=center style="height:100%;">
+  	<tr>
+     <td align="center">
+     <div style="width:400px;height:100px;background-color:rgb(51,175,234);text-align:center; vertical-align:middle; display: table-cell;border-radius:15px">
+			<input style="height:30px;" type="button" value="测试" onclick="sendMessage()" />	
+	  </div>
+     </td>
+  	</tr>
+	</table>
+	</body>
+</html>
