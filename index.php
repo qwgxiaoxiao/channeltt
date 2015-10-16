@@ -1,5 +1,4 @@
 <?php
-#####
 header("Content-type: text/html; charset=utf-8"); 
 $channel = new SaeChannel();
 $connection = $channel->createChannel('test',3600);
